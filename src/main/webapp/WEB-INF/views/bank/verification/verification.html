@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Верифікація</title>
+</head>
+<body>
+    <form style="text-align: center;" th:method="POST" th:action="@{/bank/verification}" th:object="${client}">
+        <h1><strong>Внесіть дані для верифікації</strong></h1>
+        <label for="id">Ідентифікаційний код:</label>
+        <input type="text" th:field="*{id}" id="id"/>
+        <div style="color:red" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id error</div>
+        <br/>
+        <label for="name">ПІБ:</label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+        <br/>
+        <label for="age">Вік:</label>
+        <input type="text" th:field="*{age}" id="age"/>
+        <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+        <br/>
+        <input type="submit" value="Відправити"/>
+    </form>
+</body>
+</html>

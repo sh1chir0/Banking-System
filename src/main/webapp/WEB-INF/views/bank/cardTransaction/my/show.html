@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Інформація</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <p th:text="${'Номер картки: ' + card.getNumber()}"/>
+    <p th:text="${'CVV: ' + card.getCvv()}"/>
+    <p th:text="${'Дійсна до: ' + card.getDate()}"/>
+    <p th:text="${'Баланс: ' + card.getMoney() + ' грн.'}"/>
+    <form th:method="DELETE" th:action="@{/bank/card/close/{id}(id=${card.getNumber()})}">
+      <input type="submit" value="Закрити картку"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка на верифікацію</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1><strong>Заявка:</strong></h1>
+        <p th:text="${'Ідентифікаційний код: ' + order.getId()}"></p>
+        <p th:text="${'ПІБ: ' + order.getName()}"></p>
+        <p th:text="${'Вік: ' + order.getAge()}"></p>
+        <p th:text="${'Телефон: ' + order.getPhone()}"></p>
+        <form th:method="POST" th:action="@{/bank/admin/check-verification/{id}(id=${order.getClient_id()})}">
+            <input type="submit" value="Верифікувати"/>
+        </form>
+        <form th:method="DELETE" th:action="@{/bank/admin/check-verification/{id}(id=${order.getClient_id()})}">
+            <input type="submit" value="Відмовити"/>
+        </form>
+    </div>
+</body>
+</html>

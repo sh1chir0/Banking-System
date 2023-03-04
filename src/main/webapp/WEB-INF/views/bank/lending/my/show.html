@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мій кредит</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1><strong>Мій кредит:</strong></h1>
+    <p th:text="${'Номер картки: ' + credit.getNumber()}"/>
+    <p th:text="${'Дата, до якої дійсна картка: ' + credit.getDate()}"/>
+    <p th:text="${'CVV: ' + credit.getCvv()}"/>
+    <p th:text="${'Доступні кошти: ' + credit.getMoney()}"/>
+</div>
+</body>
+</html>

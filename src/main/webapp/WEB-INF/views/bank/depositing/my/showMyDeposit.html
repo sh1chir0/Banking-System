@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мій депозит</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1><strong>Мій депозит:</strong></h1>
+    <p th:text="${'Номер картки: ' + deposit.getNumber()}"/>
+    <p th:text="${'Дійсна до: ' + deposit.getDate()}"/>
+    <p th:text="${'CVV: ' + deposit.getCvv()}"/>
+    <p th:text="${'Кошти: ' + deposit.getMoney()}"/>
+    <p th:text="${'Відсоток: ' + deposit.getPercent() + '%'}"/>
+    <p th:text="${'Строк: ' + deposit.getTerm()}"/>
+</div>
+</body>
+</html>

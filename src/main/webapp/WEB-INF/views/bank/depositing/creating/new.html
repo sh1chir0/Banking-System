@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Відкрити депозит</title>
+</head>
+<body>
+    <form style="text-align: center;" th:method="POST" th:action="@{/bank/deposits/new}" th:object="${deposit}">
+        <p><strong>Депозит під 5%</strong></p>
+        <label for="money">Введіть суму:</label>
+        <input type="text" th:field="*{money}" id="money"/>
+        <div style="color:red" th:if="${#fields.hasErrors('money')}" th:errors="*{money}">Money error</div>
+        <br/>
+        <label for="term">Введіть строк:</label>
+        <input type="text" th:field="*{term}" id="term"/>
+        <div style="color:red" th:if="${#fields.hasErrors('term')}" th:errors="*{term}">Term error</div>
+        <br/>
+        <input type="submit" value="Подати заявку"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Close orders</title>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>Заявки на закриття карток</strong></h1>
+<div style="text-align: center;" th:each="order : ${closeOrders}">
+    <a th:href="@{/bank/admin/card-close-orders/{id}(id = ${order.getOrder_id()})}" th:text="${order.getNumber()}">text</a>
+</div>
+</body>
+</html>

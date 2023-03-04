@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мої депозити</title>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>Мої депозити:</strong></h1>
+<div style="text-align: center;" th:each="deposit : ${deposits}">
+    <a th:href="@{/bank/deposits/my/{id}(id=${deposit.getDeposit_id()})}" th:text="${deposit.getNumber()}"/>
+</div>
+</body>
+</html>

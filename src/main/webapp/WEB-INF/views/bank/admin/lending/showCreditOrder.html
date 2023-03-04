@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1><strong>Заявка:</strong></h1>
+        <p th:text="${'Ідентифікаційний код: ' + order.getId()}"/>
+        <p th:text="${'Чи є робота: ' + order.isJob()}"/>
+        <p th:text="${'Чи є машина: ' + order.isCar()}"/>
+        <p th:text="${'Чи є нерухомість: ' + order.isRealty()}"/>
+        <p th:text="${'Кількість дітей: ' + order.getChildren()}"/>
+        <p th:text="${'Сума: ' + order.getMoney()}"/>
+        <form th:method="POST" th:action="@{/bank/admin/credit/create-orders/{id}(id=${order.getOrder_id()})}">
+            <input type="submit" value="Одобрити"/>
+        </form>
+        <form th:method="DELETE" th:action="@{/bank/admin/credit/create-orders/{id}(id=${order.getOrder_id()})}">
+            <input type="submit" value="Відмовити">
+        </form>
+    </div>
+</body>
+</html>

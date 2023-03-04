@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Переказати кошти</title>
+</head>
+<body>
+<form style="text-align: center;" th:method="POST" th:action="@{/bank/payments-transfers/transfer}" th:object="${transfer}">
+    <h1><strong>Перекази між картками:</strong></h1>
+    <label for="payCard">Ваша картка:</label>
+    <input type="text" th:field="*{payCard}" id="payCard"/>
+    <div style="color:red" th:if="${#fields.hasErrors('payCard')}" th:errors="*{payCard}">PayCard error</div>
+    <br/>
+    <label for="cardToPay">Картка для переказу:</label>
+    <input type="text" th:field="*{cardToPay}" id="cardToPay"/>
+    <div style="color:red" th:if="${#fields.hasErrors('cardToPay')}" th:errors="*{cardToPay}">CardToPay error</div>
+    <br/>
+    <label for="money">Сума:</label>
+    <input type="text" th:field="*{money}" id="money">
+    <div style="color:red" th:if="${#fields.hasErrors('money')}" th:errors="*{money}">Money error</div>
+    <br/>
+
+    <input type="submit" value="Переказати">
+</form>
+</body>
+</html>

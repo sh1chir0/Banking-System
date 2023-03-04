@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мої картки</title>
+</head>
+<body>
+<p style="text-align: center;"><strong>Мої картки:</strong></p>
+<div style="text-align: center;" th:each="card : ${cards}">
+  <a th:href="@{/bank/card/{id}(id=${card.getNumber()})}" th:text="${card.getNumber()}">user</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизація</title>
+</head>
+<body>
+<form style="text-align: center;" th:method="POST" th:action="@{/bank/authorization}" th:object="${user}">
+    <h1><strong>Авторизація</strong></h1>
+    <label for="phone">Номер телефону:</label>
+    <input type="text" th:field="*{phone}" id="phone"/>
+    <div style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</div>
+    <br/>
+    <label for="password">Пароль:</label>
+    <input type="password" th:field="*{password}" id="password"/>
+    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Phone error</div>
+    <br/>
+    <input type="submit" value="Вхід"/>
+    <br/>
+    <a href="/bank/registration">Немає облікового запису? Реєстрація</a>
+</form>
+</body>
+</html>

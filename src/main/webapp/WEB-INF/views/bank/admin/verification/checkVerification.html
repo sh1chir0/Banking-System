@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявки на верифікацію</title>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>Заявки:</strong></h1>
+<div style="text-align: center;" th:each="order: ${orders}">
+    <a th:href="@{/bank/admin/check-verification/{id}(id=${order.getClient_id()})}" th:text="${order.getName()}">order</a>
+</div>
+</body>
+</html>

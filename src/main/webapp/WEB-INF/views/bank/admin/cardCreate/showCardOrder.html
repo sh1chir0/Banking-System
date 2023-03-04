@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1><strong>Замовник:</strong></h1>
+        <p th:text="${'Ідентифікаційний код: ' + order.getId()}"/>
+        <p th:text="${'ПІБ: ' + order.getName()}"/>
+        <p th:text="${'Вік: ' + order.getAge()}"/>
+        <form th:method="POST" th:action="@{/bank/admin/card-order/{id}(id=${order.getOrder_id()})}">
+            <input type="submit" value="Одобрити"/>
+        </form>
+        <form th:method="DELETE" th:action="@{/bank/admin/card-order/{id}(id=${order.getOrder_id()})}">
+            <input type="submit" value="Відхилити"/>
+         </form>
+    </div>
+</body>
+</html>

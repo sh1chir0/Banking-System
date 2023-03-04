@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Отримати кредит</title>
+</head>
+<body>
+    <form style="text-align: center;" th:method="POST" th:action="@{/bank/credit/new}" th:object="${credit}">
+        <h1><strong>Заявка на кредит</strong></h1>
+        <label for="job">Чи маєте роботу:</label>
+        <input type="checkbox" th:field="*{job}" id="job">
+        <br/>
+        <label for="car">Чи маєте машину:</label>
+        <input type="checkbox" th:field="*{car}" id="car">
+        <br/>
+        <label for="realty">Чи маєте нерухомість:</label>
+        <input type="checkbox" th:field="*{realty}" id="realty">
+        <br/>
+        <label for="children">Кількість дітей:</label>
+        <input type="text" th:field="*{children}" id="children">
+        <div style="color:red" th:if="${#fields.hasErrors('children')}" th:errors="*{children}">Children error</div>
+        <br/>
+        <label for="money">Сума кредиту:</label>
+        <input type="text" th:field="*{money}" id="money">
+        <div style="color:red" th:if="${#fields.hasErrors('money')}" th:errors="*{money}">Money error</div>
+        <br/>
+        <input type="submit" value="Відправити">
+    </form>
+</body>
+</html>

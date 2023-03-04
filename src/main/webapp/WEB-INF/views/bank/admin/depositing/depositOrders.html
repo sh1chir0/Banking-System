@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.orf">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявки на депозит</title>
+</head>
+<body>
+<h1 style="text-align: center;"><strong>Заявки на кредит:</strong></h1>
+<div style="text-align: center;" th:each="order : ${orders}">
+    <a th:href="@{/bank/admin/deposit/create-orders/{id}(id=${order.getDeposit_id()})}" th:text="${order.getId()}"/>
+</div>
+</body>
+</html>
